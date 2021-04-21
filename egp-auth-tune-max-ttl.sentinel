@@ -1,0 +1,13 @@
+five_minutes = func() {
+
+  if int(request.data["default_lease_ttl"]) <= 300 and int(request.data["max_lease_ttl"]) <= 300 {
+    return true
+  }
+  if int(request.data["default_lease_ttl"]) > 300 and int(request.data["max_lease_ttl"]) > 300 {
+    return false
+  }
+}
+
+main = rule {
+  five_minutes()
+}

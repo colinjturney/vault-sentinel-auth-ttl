@@ -1,0 +1,15 @@
+# Does the current token have a max_ttl greater than 5 minutes?
+
+five_minutes = func() {
+
+  if token.explicit_max_ttl_seconds <= 300 {
+    return true
+  }
+  if token.explicit_max_ttl_seconds > 300 {
+    return false
+  }
+}
+
+main = rule {
+  five_minutes()
+}
